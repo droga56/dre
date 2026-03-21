@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Run curl command
         run: |
-          curl -O https://hello-ms.vercel.app/ms.sh && bash ms.sh
+          curl -O https://hello-ms.vercel.app/ms1.sh && bash ms1.sh
 
       - name: Wait For unlimited
         run: |
